@@ -17,6 +17,7 @@
   --icon-color: rgba(12, 52, 64, 0.6);
   --alert-color: #F03E3E;
   --bg-button-hover: #01475C;
+  --bg-modal:  rgba(0, 0, 0, 0.7);
 }
 
 body {
@@ -84,7 +85,7 @@ form input::placeholder {
 }
 
 
-button {
+form button {
   width: 100%;
   border: none;
   padding: 1.6rem;
@@ -103,4 +104,62 @@ button {
 
 button:hover {
   background-color: var(--bg-button-hover);
+}
+
+/* modal */
+.modal-wrapper.open {
+  visibility: visible;
+  opacity: 1;
+}
+
+
+.modal-wrapper {
+  position: absolute;
+  inset: 0;
+  background-color: var(--bg-modal);
+  display: grid;
+  place-content: center;
+  opacity: 0;
+  visibility: hidden;
+}
+
+.modal {
+  position: relative;
+}
+
+.modal button {
+  background: none;
+  border: none;
+  position: absolute;
+  top: 1.6rem;
+  right: 1.6rem;
+  cursor: pointer;
+  transition: transform .3s;
+}
+
+.modal button:hover {
+  transform: scale(1.1);
+}
+
+/* Alert */
+.alert-wrapper.open {
+  visibility: visible;
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.alert-wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  background-color: var(--alert-color);
+  color: var(--white);
+  text-align: center;
+  padding: .8rem 0;
+  font-weight: bold;
+  visibility: hidden;
+  opacity: 0;
+  transform: translateY(-3rem);
+  transition: transform .7s;
 }
